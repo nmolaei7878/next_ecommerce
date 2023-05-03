@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import ModalContext from "@/store/context/modal-context";
 
 const MiddleSide: React.FC = () => {
+  const modalContext = useContext(ModalContext);
+
   return (
     <div className="h-2/6  overflow-hidden relative sm:absolute sm:top-2/4 sm:right-2/4 sm:translate-x-2/4 sm:-translate-y-2/4 sm:w-5/12 sm:h-full  sm:block order-2">
       <div className=" h-full absolute top-2/4 right-2/4 translate-x-2/4 -translate-y-2/4 z-0   bg-blue-500 w-full sm:h-full cone-shape"></div>
@@ -13,7 +16,10 @@ const MiddleSide: React.FC = () => {
         />
       </div>
       {/* // floats */}
-      <div className=" sm:hidden  flex items-center gap-2 z-30 absolute bottom-0 left-0  py-4 px-2 text-black">
+      <div
+        onClick={modalContext.toggle}
+        className="cursor-pointer sm:hidden  flex items-center gap-2 z-30 absolute bottom-0 left-0  py-4 px-2 text-black"
+      >
         <div className="p-2 bg-slate-300 rounded-full">
           <div className="p-1 bg-white text-slate-400 rounded-full">
             <LocalMallIcon fontSize="small" />

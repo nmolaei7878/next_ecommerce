@@ -23,7 +23,7 @@ const CollectionDetail: React.FC<Props> = (props) => {
     if (exsist) {
       setExsist(true);
     }
-  }, [exsist]);
+  }, [exsist, card.length, product, card]);
 
   const dispatch = useAppDispatch();
 
@@ -35,7 +35,7 @@ const CollectionDetail: React.FC<Props> = (props) => {
   return (
     <>
       <section className="w-screen h-screen">
-        <div className="grid grid-cols-2 py-10 px-6 justify-items-center h-full">
+        <div className="grid sm:grid-cols-2 grid-cols-1 py-10 px-6 justify-items-center h-full">
           <div className="filter grayscale h-5/6 w-2/3">
             <Image
               width={500}

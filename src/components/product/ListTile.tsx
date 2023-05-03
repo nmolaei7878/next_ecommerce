@@ -19,7 +19,7 @@ const ListTile: React.FC<Props> = (props) => {
     <>
       <div
         onClick={gotoDetailPage}
-        className="w-56 h-56 relative group cursor-pointer "
+        className="w-44 h-44 relative group cursor-pointer "
       >
         <img
           className="w-full h-full rounded-3xl filter grayscale group-hover:scale-105 "
