@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { createPortal } from "react-dom";
 import CloseIcon from "@mui/icons-material/Close";
-import { useAppSelector } from "@/util/hooks/hooks";
+import { useAppDispatch, useAppSelector } from "@/util/hooks/hooks";
 import CardModalContext from "@/store/context/card-modal";
 import Image from "next/image";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { removeFromCard } from "@/store/slices/card-slice";
 
 const CardModal = () => {
   const cardModalElement = document.getElementById("card") as HTMLElement;
 
+  const dispatch = useAppDispatch();
+
   const { card } = useAppSelector((state) => state.card);
+
   const cardContext = useContext(CardModalContext);
 
   function Card() {
@@ -39,7 +42,10 @@ const CardModal = () => {
           <ul className=" overflow-scroll h-screen">
             {card.map((cardItem) => {
               return (
-                <div className="flex gap-10 rounded-md shadow-2xl  p-8 text-white ">
+                <div
+                  key={cardItem.id}
+                  className="flex gap-10 rounded-md shadow-2xl  p-8 text-white "
+                >
                   <div className="w-20 grayscale ">
                     <Image
                       src={cardItem.image}
@@ -51,6 +57,13 @@ const CardModal = () => {
                   <div>
                     <p>{cardItem.title.slice(0, 40)}</p>
                     <p>{`$${cardItem.price}`}</p>
+                  </div>
+                  <div
+                    key={cardItem.id}
+                    onClick={() => dispatch(removeFromCard(cardItem))}
+                    className="cursor-pointer flex items-center justify-center   text-red-600  w-12 h-12"
+                  >
+                    <CloseIcon fontSize="large" />
                   </div>
                 </div>
               );

@@ -5,6 +5,7 @@ type CardItem = {
   image: string;
   price: number;
   title: string;
+  exsist: boolean;
 };
 
 type InitialState = {
@@ -22,12 +23,14 @@ const CardSlice = createSlice({
     addToCard(state, action) {
       const newCardItem: CardItem = {
         ...action.payload,
+        exsist: true,
       };
 
       state.card.push(newCardItem);
     },
     removeFromCard(state, action) {
-      state.card.filter((e) => e.id !== action.payload.id);
+      state.card = state.card.filter((e) => e.id !== action.payload.id);
+      console.log(state.card);
     },
   },
 });
