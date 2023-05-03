@@ -10,12 +10,6 @@ import { CardModalContextProvider } from "@/store/context/card-modal";
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loader = document.getElementById("globalLoader");
-      if (loader) loader.remove();
-    }
-  }, []);
   return (
     <>
       <Provider store={store}>

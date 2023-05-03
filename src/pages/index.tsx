@@ -5,12 +5,6 @@ import RightSide from "@/components/home/RightSide";
 import { useEffect } from "react";
 
 const HomePage: React.FC = () => {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const loader = document.getElementById("globalLoader");
-      if (loader) loader.remove();
-    }
-  }, []);
   return (
     <div className="w-screen h-[80rem] sm:h-screen dark:bg-slate-200 bg-background dark:text-slate-900 text-white px-10 pt-4 flex flex-col gap-6">
       <div className=" flex-1 overflow-hidden relative">

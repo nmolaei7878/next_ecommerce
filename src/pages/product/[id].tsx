@@ -19,10 +19,6 @@ const CollectionDetail: React.FC<Props> = (props) => {
 
   useEffect(() => {
     const exsist = card.find((e) => e.title === props.product.title);
-    console.log("running");
-    console.log(exsist);
-    console.log(card);
-    console.log(card.length);
 
     if (exsist) {
       setExsist(true);
