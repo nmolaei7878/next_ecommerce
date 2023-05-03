@@ -4,12 +4,19 @@ import ListTile from "../../components/product/ListTile";
 import Image from "next/image";
 import ProductService from "@/services/product_service";
 import ProductModel from "@/types/product";
+import { useEffect } from "react";
 
 interface Props {
   children?: React.ReactNode;
   products: Array<ProductModel>;
 }
 const Collection: React.FC<Props> = (props) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const loader = document.getElementById("globalLoader");
+      if (loader) loader.remove();
+    }
+  }, []);
   const products = props.products;
   return (
     <>

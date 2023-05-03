@@ -7,8 +7,15 @@ import { MenuContextProvider } from "@/store/context/menu-context";
 import { Provider } from "react-redux";
 import Layout from "@/layout/layout";
 import { CardModalContextProvider } from "@/store/context/card-modal";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const loader = document.getElementById("globalLoader");
+      if (loader) loader.remove();
+    }
+  }, []);
   return (
     <>
       <Provider store={store}>
