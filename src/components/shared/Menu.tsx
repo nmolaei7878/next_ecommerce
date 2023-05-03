@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import MenuContext from "../../store/context/menu-context";
 import Link from "next/link";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Menu = () => {
   const menuContext = useContext(MenuContext);
@@ -28,7 +29,7 @@ const Menu = () => {
             <Link onClick={menuContext.toggle} href={"/new"}>
               New
             </Link>
-          </li>{" "}
+          </li>
           <li>
             <Link onClick={menuContext.toggle} href={"/sales"}>
               Sales
@@ -36,9 +37,7 @@ const Menu = () => {
           </li>
         </ul>
       </div>
-      ,
     </>
   );
 };
-
 export default Menu;

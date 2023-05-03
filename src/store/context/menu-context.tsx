@@ -19,7 +19,7 @@ export const MenuContextProvider: React.FC<Props> = (porps) => {
 
   function toggleMenu() {
     setShowMenu((pervState) => (pervState = !pervState));
-    console.log("MENU");
+    console.log(showMenu);
   }
 
   const contextValue: MenuContextObj = {

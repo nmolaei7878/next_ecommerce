@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import ModalContext from "../../store/context/modal-context";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
 
 const FloatBadges: React.FC = () => {
   const modalContext = useContext(ModalContext);
@@ -11,7 +12,11 @@ const FloatBadges: React.FC = () => {
         className=" group sm:flex  hidden items-center gap-5 z-30 absolute bottom-20 right-10 translate-x-4/4   py-8 px-6 text-black"
       >
         <div className=" p-3 bg-slate-300 rounded-full group-hover:bg-yellow-400 cursor-pointer">
-          <div className=" p-2 bg-white rounded-full"></div>
+          <div className=" p-2 bg-white rounded-full">
+            <div className="p-1 bg-white text-slate-400 rounded-full">
+              <LocalMallIcon fontSize="medium" />
+            </div>
+          </div>
         </div>
         <div className="px-10 py-3 bg-slate-300 rounded-3xl text-lg group-hover:bg-yellow-400 cursor-pointer">
           <p>Best Signup</p>

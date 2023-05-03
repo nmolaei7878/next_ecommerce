@@ -12,12 +12,17 @@ module.exports = {
         background: "#1F252D",
       },
       backgroundImage: {
-        // "man-5": "url('../public/images/man-5.jpg')",
+        "man-5": "url('/images/man-5.jpg')",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
       zIndex: {
         60: "60",
         70: "70",
         80: "80",
+        90: "90",
+        100: "100",
+        110: "110",
+        120: "120",
       },
       keyframes: {
         bottom: {
@@ -46,6 +51,7 @@ module.exports = {
         },
       },
       animation: {
+        "spin-slow": "spin 2s linear infinite",
         bottom: "bottom 1s ease-in-out",
         top: "top 1s ease-in-out",
         right: "right 1s ease-in-out",

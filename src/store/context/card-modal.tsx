@@ -1,11 +1,11 @@
 import React from "react";
 
-type ModalContextObj = {
+type CardModalContextObj = {
   showModal: boolean;
   toggle: () => void;
 };
 
-const ModalContext = React.createContext<ModalContextObj>({
+const CardModalContext = React.createContext<CardModalContextObj>({
   showModal: false,
   toggle: () => {},
 });
@@ -14,7 +14,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export const ModalContextProvider: React.FC<Props> = (porps) => {
+export const CardModalContextProvider: React.FC<Props> = (porps) => {
   const [showModal, setShowModal] = React.useState(false);
 
   function toggle() {
@@ -26,16 +26,16 @@ export const ModalContextProvider: React.FC<Props> = (porps) => {
     }
   }
 
-  const contextValue: ModalContextObj = {
+  const contextValue: CardModalContextObj = {
     toggle,
     showModal,
   };
 
   return (
-    <ModalContext.Provider value={contextValue}>
+    <CardModalContext.Provider value={contextValue}>
       {porps.children}
-    </ModalContext.Provider>
+    </CardModalContext.Provider>
   );
 };
 
-export default ModalContext;
+export default CardModalContext;

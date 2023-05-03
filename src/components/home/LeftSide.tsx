@@ -1,6 +1,8 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const LeftSide: React.FC = () => {
+  const router = useRouter();
   return (
     <div className="flex-1 flex flex-col gap-10 ml-8 order-3 sm:order-none">
       <p className="text-[2.4rem] font-bold">Trendy Collection</p>
@@ -8,7 +10,12 @@ const LeftSide: React.FC = () => {
         Seedliy say has suitable disposal and boy. <br></br> Exerise joy man
         children rejoiced.
       </p>
-      <button className="p-4 bg-slate-300 text-black font-bold w-52 sm:block hidden">
+      <button
+        onClick={() => {
+          router.push("/product");
+        }}
+        className="p-4 bg-slate-300 text-black font-bold w-52 sm:block hidden"
+      >
         Start Shopping
       </button>
       <div className="flex gap-10">

@@ -1,8 +1,10 @@
 import ProductService from "@/services/product_service";
 import ProductModel from "@/types/product";
 import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/util/hooks/hooks";
+import { addToCard } from "@/store/slices/card-slice";
 
 interface Props {
   children?: React.ReactNode;
@@ -11,7 +13,25 @@ interface Props {
 
 const CollectionDetail: React.FC<Props> = (props) => {
   const product = props.product;
-  console.log(product);
+  const { card } = useAppSelector((state) => state.card);
+
+  const [exsist, setExsist] = useState(false);
+
+  useEffect(() => {
+    const exsist = card.find((e) => e.title === props.product.title);
+
+    if (exsist) {
+      setExsist(true);
+    }
+  }, [exsist]);
+
+  const dispatch = useAppDispatch();
+
+  function onAddToCard() {
+    dispatch(addToCard(product));
+    setExsist(true);
+  }
+
   return (
     <>
       <section className="w-screen h-screen">
@@ -22,7 +42,7 @@ const CollectionDetail: React.FC<Props> = (props) => {
               height={500}
               className="rounded-3xl h-full w-full"
               src={product.image}
-              alt="product image"
+              alt={product.title}
             />
           </div>
           <div>
@@ -30,9 +50,16 @@ const CollectionDetail: React.FC<Props> = (props) => {
               {product.title}
             </h1>
             <h3 className="text-slate-600 text-xl mt-10">{product.title} </h3>
-            <button className="p-4 bg-slate-900 text-slate-100 font-bold w-64 mt-10 ">
-              Add To Cart
-            </button>
+            {
+              <button
+                onClick={onAddToCard}
+                className={`p-4  text-slate-100 font-bold w-64 mt-10 ${
+                  exsist ? "bg-zinc-700" : "bg-slate-900"
+                }`}
+              >
+                {exsist ? "1 Added to Card" : "Add to Card"}
+              </button>
+            }
           </div>
         </div>
       </section>
@@ -44,7 +71,6 @@ export default CollectionDetail;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id as string;
-  console.log(id);
   const product = await ProductService.getProduct(id);
 
   return {

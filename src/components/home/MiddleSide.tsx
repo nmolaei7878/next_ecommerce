@@ -1,4 +1,5 @@
 import React from "react";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
 
 const MiddleSide: React.FC = () => {
   return (
@@ -14,8 +15,11 @@ const MiddleSide: React.FC = () => {
       {/* // floats */}
       <div className=" sm:hidden  flex items-center gap-2 z-30 absolute bottom-0 left-0  py-4 px-2 text-black">
         <div className="p-2 bg-slate-300 rounded-full">
-          <div className="p-1 bg-white rounded-full"></div>
+          <div className="p-1 bg-white text-slate-400 rounded-full">
+            <LocalMallIcon fontSize="small" />
+          </div>
         </div>
+
         <div className="px-8 py-3 bg-slate-300 rounded-xl text-sm font-semibold">
           <p>Best Signup</p>
           <div>Offers </div>

@@ -7,6 +7,10 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <div id="menu"></div>
+        <div id="modal"></div>
+        <div id="overlay"></div>
+        <div id="card"></div>
       </body>
     </Html>
   );
