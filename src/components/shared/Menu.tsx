@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import MenuContext from "../../store/context/menu-context";
 import Link from "next/link";
-import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Menu = () => {
   const menuContext = useContext(MenuContext);
@@ -12,7 +12,9 @@ const Menu = () => {
         <div
           onClick={menuContext.toggle}
           className="sm:hidden block ml-3 cursor-pointer dark:text-slate-400 text-slate-200"
-        ></div>
+        >
+          <CloseIcon fontSize="large" />
+        </div>
 
         <ul className="flex flex-col font-semibold text-2xl gap-6 items-center text-slate-200 dark:text-slate-500">
           <li className="">

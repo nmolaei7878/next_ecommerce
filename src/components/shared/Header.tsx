@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import MenuContext from "../../store/context/menu-context";
 import ThemeContext from "../../store/context/theme-context";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "../../util/hooks/hooks";
+import { useAppSelector } from "../../util/hooks/hooks";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import CardModalContext from "@/store/context/card-modal";
+import ListIcon from "@mui/icons-material/List";
 
 const Header = () => {
   const menuContext = useContext(MenuContext);
@@ -77,22 +78,19 @@ const Header = () => {
               </ul>
             </nav>
 
-            <div onClick={cardContext.toggle} className=" sm:px-5 ">
-              <div className="cursor-pointer text-slate-100 text-3xl w-28 rounded-md bg-slate-500 flex items-center justify-around">
-                <LocalMallIcon fontSize="medium" />
-                <p className="text-[1.5rem]">{card.length}</p>
-              </div>
-
-              {
-                <div
-                  onClick={menuContext.toggle}
-                  className={`sm:hidden block ml-3 cursor-pointer  ${
-                    menuContext.showMenu ? "text-slate-400" : "text-red-400"
-                  } `}
-                >
-                  menu
+            <div className="flex">
+              <div onClick={cardContext.toggle} className=" sm:px-5 ">
+                <div className="cursor-pointer text-slate-100 text-3xl w-28 rounded-md bg-slate-500 flex items-center justify-around">
+                  <LocalMallIcon fontSize="medium" />
+                  <p className="text-[1.5rem]">{card.length}</p>
                 </div>
-              }
+              </div>
+              <div
+                onClick={menuContext.toggle}
+                className={`sm:hidden block ml-3 cursor-pointer text-slate-100 dark:text-slate-500`}
+              >
+                <ListIcon fontSize="large" />
+              </div>
             </div>
           </div>
         </div>
