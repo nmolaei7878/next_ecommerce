@@ -1,0 +1,10 @@
+{
+  "theme_color": "#3579f6",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Next-Ecommerce",
+  "short_name": "NEcommerce",
+  "description": "Next-Ecommerce App developd by Molaei-M"
+}
