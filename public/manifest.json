@@ -6,5 +6,12 @@
   "start_url": "/",
   "name": "Next-Ecommerce",
   "short_name": "NEcommerce",
-  "description": "Next-Ecommerce App developd by Molaei-M"
+  "description": "Next-Ecommerce App developd by Molaei-M",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
